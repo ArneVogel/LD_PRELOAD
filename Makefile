@@ -16,5 +16,8 @@ tcp_app/target/release/tcp_app: tcp_app/src/main.rs
 run-tcp: tcp_app/target/release/tcp_app lib.so
 	LD_PRELOAD=$(shell pwd)/lib.so ./tcp_app/target/release/tcp_app
 
+trace-tcp: tcp_app/target/release/tcp_app lib.so
+	sudo trace ./tcp_app/target/release/tcp_app
+
 cat: lib.so
 	LD_PRELOAD=$(shell pwd)/lib.so cat Makefile
